@@ -1,0 +1,46 @@
+Package: tsclean
+Title: Checking for, and sometimes correcting, anomalies in time series
+Version: 1.0.0
+Authors@R: 
+	person("Gertjan", "van den Bos", email = "gertjan.bos@ing.com", role = c("aut", "cre"))
+	person("Mehmet", "Kutluay", email = "mehmet.kutluay@ing.com", role = c("aut", "cre"))
+	person("Olle", "Dahlen", email = "olle.dahlen@ing.com", role = c("aut", "cre"))
+	person("Miel", "Verkerken", email = "mielverkerken@hotmail.com", role = c("aut", "cre"))
+	person("Han", "Lin", email = "han.lin@ing.com", role = c("aut", "cre"))
+Description: R package with tools for detecting anomalies in time series, as well as retrieving and tidying of MISOB data
+Depends: 
+	R (>= 3.6.0),
+	magrittr (>= 1.5),
+	tstools (>= 1.0.0)
+Imports: 
+	DDoutlier (>= 0.1.0),
+	V8 (>= 2.2),
+	dplyr (>= 0.7.4),
+	ggplot2 (>= 3.0.0),
+	openxlsx (>= 4.1.0),
+	shiny (>= 1.0.5),
+	shinyAce (>= 0.3.1),
+	shinyWidgets (>= 0.3.6),
+	shinydashboard (>= 0.6.1),
+	DT (>= 0.3),
+	forecast (>= 8.3),
+	forecastHybrid (>= 3.0.14),
+	ggthemes (>= 3.4.0),
+	lubridate (>= 1.6.0),
+	plotly (>= 4.7.1),
+	purrr (>= 0.2.3),
+	scales (>= 0.5.0),
+	shinycssloaders (>= 0.2.0),
+	shinyjs (>= 1.0),
+	stringi (>= 1.1.7),
+	stringr (>= 1.3.0),
+	tibble (>= 1.3.3),
+	tidyr (>= 0.7.1),
+	visNetwork (>= 2.0.3),
+	zoo (>= 1.8-0)
+Suggests: 
+	testthat (>= 2.0.0)
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
