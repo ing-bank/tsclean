@@ -14,26 +14,16 @@
 
 ## Overview<a name="overview"></a>
 
-tsclean contains a set of R functions that can be used to:
-
-  - Retrieve MISOB data:
-      - Generate a retrieval template based on a set of specifications,
-        that can be executed in Excel to retrieve the required (possibly
-        hierarchical) data from MISOB, which is an important Finance
-        data source.
-  - Tidy MISOB data:
-      - Read in retrieval data from the Excel file and transform it into
-        a [tidy
-        dataset](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html).
-  - Clean MISOB data:
-      - Start an interactive dashboard to enable the user to clean-up
-        the data, using several anomaly detection algorithms to
-        highlight potential anomalies to be replaced.
+tsclean contains R functions that support and start an interactive
+dashboard to enable the user to clean-up their time series data, using
+several anomaly detection algorithms to highlight potential anomalies to
+be replaced.
 
 The original developers of this R package are [Gertjan van den
 Bos](mailto:gertjan.bos@ing.com), [Mehmet
-Kutluay](mailto:yasar.kutluay@ing.com) & [Emre
-Gunes](mailto:emre.gunes@ing.com).
+Kutluay](mailto:yasar.kutluay@ing.com), [Olle
+Dahlen](mailto:olle.dahlen@ing.com) & [Han
+Lin](mailto:%20han.lin@ing.com).
 
 ## Features<a name="features"></a>
 
@@ -45,15 +35,6 @@ The following main functions are available within this R package.
         start a local Shiny dashboard to execute the cleaning of the
         available data. The following anomaly detection algorithms are
         available within the dashboard, using the following functions:
-          - `detect_anomalies_using_isolation_forest()`<a name="detect_anomalies_using_isolation_forest"></a>:
-            is a function to detect potential anomalies by using a
-            machine learning technique called isolation forest. The
-            technique attempts to find anomalies based on the absolute
-            percentage difference to the previous time steps moving
-            average and which month, quarter and half year it is. The
-            isolation forest gives a anomaly score which is used to
-            determine if a data point is considered a anomaly using a
-            cut-off point.
           - `detect_anomalies_using_local_outlier_factor()`<a name="detect_anomalies_using_local_outlier_factor"></a>:
             is a function to detect potential anomalies by using a
             machine learning technique called local outlier factor. The
@@ -139,9 +120,8 @@ head(dummy_anomaly_data)
 
 After getting your data, it has to be prepared for cleaning using the
 `initialize_ts_forecast_data()` function from the
-[tstools](https://gitlab.ing.net/AdvancedAnalyticsCommunity/tstools)
-package. For the example data available in `dummy_anomaly_data` this
-step has already been done.
+[tstools](https::github.com/ing-bank/tstools) package. For the example
+data available in `dummy_anomaly_data` this step has already been done.
 
 ``` r
 ts_data <- initialize_ts_forecast_data(
@@ -149,7 +129,7 @@ ts_data <- initialize_ts_forecast_data(
   date_col = "period",
   col_of_interest = "col_of_interest"
 )
-# PLEASE NOTE: due to compliancy issues we are not actually allowed to show this data here :)
+
 head(ts_data)
 ```
 
@@ -179,7 +159,7 @@ The dashboard contains the following three views:
     download/upload a set of identified anomalies (to continue cleaning
     later) and to download the cleaned data.
 
-![](man/figures/ingtsclean_dashboard_printscreen.png)
+![](man/figures/tsclean_dashboard_printscreen.png)
 
 In case of hierarchical data, a fourth view is available:
 
@@ -187,7 +167,7 @@ In case of hierarchical data, a fourth view is available:
     different groups are shown, for one or more group columns present
     within the data.
 
-![](man/figures/ingtsclean_dashboard_hierarchy_printscreen.png)
+![](man/figures/tsclean_dashboard_hierarchy_printscreen.png)
 
 -----
 
