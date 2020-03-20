@@ -28,6 +28,7 @@
 #'   visNetworkProxy visSelectNodes
 #' @importFrom DT datatable renderDataTable dataTableOutput
 #' @importFrom shinycssloaders withSpinner
+#' @importFrom rvest html_nodes html_children html_text
 #'
 #' @examples
 #' start_data_cleaning_dashboard(dummy_anomaly_data)
