@@ -14,16 +14,17 @@
 
 ## Overview<a name="overview"></a>
 
-tsclean contains R functions that support and start an interactive
-dashboard to enable the user to clean-up their time series data, using
-several anomaly detection algorithms to highlight potential anomalies to
-be replaced.
+tsclean contains a set of R functions that support and start an
+interactive dashboard to enable the user to clean-up their time series
+data, using several anomaly detection algorithms to highlight potential
+anomalies to be replaced.
 
 The original developers of this R package are [Gertjan van den
 Bos](mailto:gertjan.bos@ing.com), [Mehmet
 Kutluay](mailto:yasar.kutluay@ing.com), [Olle
-Dahlen](mailto:olle.dahlen@ing.com) & [Han
-Lin](mailto:%20han.lin@ing.com).
+Dahlen](mailto:olle.dahlen@ing.com), [Miel
+Verkerken](mailto:mielverkerken@hotmail.com) & [Han
+Lin](mailto:han.lin@ing.com).
 
 ## Features<a name="features"></a>
 
@@ -67,13 +68,14 @@ The following main functions are available within this R package.
 
 ## Installation<a name="installation"></a>
 
-tsclean is a package developed within ING and is not available on CRAN.
-The fastest way to install the package is to use a terminal or command
-prompt. Clone this repository and stay in the parent directory.
-Afterwards, simply type:
+tsclean is a package developed within ING and is not available on CRAN,
+but on [INGs github](https://github.com/ing-bank). You can install the
+package directly from github using the [devtools
+package](https://cran.r-project.org/web/packages/devtools/index.html),
+using:
 
-``` bash
-R CMD INSTALL tsclean
+``` r
+devtools::install_github("ing-bank/tsclean")
 ```
 
 Some prerequisites for installing the package:
@@ -82,10 +84,10 @@ Some prerequisites for installing the package:
   - Rtools installed ([How
     to?](https://thecoatlessprofessor.com/programming/installing-rtools-for-compiled-code-via-rcpp))
 
-Any required packages that are missing from your R library will be
-indicated during installation, please [install these missing
+Any required packages that are missing from your R library should be
+automatically installed for you, otherwise please [install any missing
 packages](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/install.packages.html)
-and retry installing tsclean.
+before using the tsclean package.
 
 -----
 
@@ -120,8 +122,8 @@ head(dummy_anomaly_data)
 
 After getting your data, it has to be prepared for cleaning using the
 `initialize_ts_forecast_data()` function from the
-[tstools](https::github.com/ing-bank/tstools) package. For the example
-data available in `dummy_anomaly_data` this step has already been done.
+[tstools](github.com/ing-bank/tstools) package. For the example data
+available in `dummy_anomaly_data` this step has already been done.
 
 ``` r
 ts_data <- initialize_ts_forecast_data(
@@ -129,8 +131,14 @@ ts_data <- initialize_ts_forecast_data(
   date_col = "period",
   col_of_interest = "col_of_interest"
 )
-
 head(ts_data)
+#>       period col_of_interest         grouping
+#> 1 2014-01-31        229424.0 group = all data
+#> 2 2014-02-28        380761.0 group = all data
+#> 3 2014-03-31        193875.6 group = all data
+#> 4 2014-04-30        249635.2 group = all data
+#> 5 2014-05-31        219741.8 group = all data
+#> 6 2014-06-30        202282.5 group = all data
 ```
 
 With the data prepared, the data cleaning dashboard can now be started
@@ -141,7 +149,7 @@ the package, but the `ts_data` can also be used if available.
 
 ``` r
 start_data_cleaning_dashboard(
-  data = ts_data
+  data = dummy_anomaly_data
 )
 ```
 
